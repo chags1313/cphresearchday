@@ -15,7 +15,6 @@ participantsfeatures = st.sidebar.radio("Novelty Detected Movement", ["Regressio
 # open zipped dataset
 comb = pd.read_csv("https://raw.githubusercontent.com/chags1313/cphresearchday/main/pages/comb.csv")
 allptdata = pd.read_pickle("https://raw.githubusercontent.com/chags1313/cphresearchday/main/pages/alld.pkl")
-st.write(allptdata)
 
 if participantsfeatures == 'Regression':
     hs = st.radio("hs", ['Hand', 'Arm'], horizontal = True, label_visibility='hidden')
