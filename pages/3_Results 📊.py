@@ -13,7 +13,7 @@ A significant regression equation was found for novel UE hand movement patterns 
 """
 participantsfeatures = st.sidebar.radio("Novelty Detected Movement", ["Regression", "Participants", "Features"])
 # open zipped dataset
-with zipfile.ZipFile("my_data.zip") as z:
+with zipfile.ZipFile("my_data.zip.csv") as z:
    # open the csv file in the dataset
    with z.open("my_data.csv") as f:
        
