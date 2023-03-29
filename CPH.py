@@ -41,7 +41,7 @@ This work was supported by The Assistant Secretary of Defense for Health Affairs
 
 
 
-we = Image.open("C:/Users/chags/Downloads/we.jpg")
+we = Image.open("https://raw.githubusercontent.com/chags1313/cphresearchday/main/we.jpg")
 st.image(we, use_column_width=True, caption = 'AI generated image')
 
 ss1, ss2, ss3, ss4, ss5, ss6 = st.columns(6)
