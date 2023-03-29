@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
+import zipfile
+
 st.set_page_config(layout="wide")
 
 st.title("Results")
@@ -10,8 +12,14 @@ st.title("Results")
 A significant regression equation was found for novel UE hand movement patterns (F(1,9) = 37.61, p < 0.001), with an R2 of 0.84, but not found for novel UE arm movement patterns. CUE-T scores increased by 12.9 points for each 0.1 increase in mean novel UE hand movement score
 """
 participantsfeatures = st.sidebar.radio("Novelty Detected Movement", ["Regression", "Participants", "Features"])
-allptdata = pd.read_csv("D:/PHIRE/CPH/pages/allptdata.csv")
-comb = pd.read_csv("D:/PHIRE/CPH/pages/comb.csv")
+# open zipped dataset
+with zipfile.ZipFile("allptdata.zip") as z:
+   # open the csv file in the dataset
+   with z.open("allptdata.csv") as f:
+       
+      # read the dataset
+      allptdata = pd.read_csv(f)
+comb = pd.read_csv("comb.csv")
 if participantsfeatures == 'Regression':
     hs = st.radio("hs", ['Hand', 'Arm'], horizontal = True, label_visibility='hidden')
     if hs == 'Hand':
