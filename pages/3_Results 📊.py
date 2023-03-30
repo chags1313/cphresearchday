@@ -36,7 +36,7 @@ if participantsfeatures == 'Regression':
     fig = px.scatter(comb[comb['Class']==v], x= 'Novelty Score', y = 'CUET Score', trendline = 'ols', trendline_color_override='black')
     fig.update_layout(showlegend=False, font_size = 28)
     fig.update_traces(marker={'size': 24})
-    fig.update_layout(paper_bgcolor=None, plot_bgcolor=None)
+    fig.update_layout(paper_bgcolor=None, plot_bgcolor=None, title = text)
     fig.update_layout(legend=dict(
         orientation="h",
         yanchor="bottom",
@@ -46,8 +46,6 @@ if participantsfeatures == 'Regression':
     ))
     fig.update_xaxes(title = None)
     fig.update_yaxes(title = None)
-    fig.add_annotation(text=text,
-                      x=comb['Novelty Score'].mean(), y=comb['CUET Score'].max(), showarrow=False, bgcolor='lightblue', opacity = 0.95)
     st.plotly_chart(fig, use_container_width=True, config={'displayModeBar':False})
 if participantsfeatures == 'Participants':
     pt = c2.selectbox("Select Example Participant", options = allptdata['PT'].unique())
