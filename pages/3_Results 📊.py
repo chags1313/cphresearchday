@@ -64,27 +64,32 @@ if participantsfeatures == 'Participants':
 
     st.plotly_chart(fig, use_container_width=True, config={'displayModeBar':False})
 if participantsfeatures == 'Features':
-    handarm = c2.radio("Hand or Side", options = ["Hand", "Arm"], horizontal = True, label_visibility = 'hidden')
-    feats = st.multiselect("Features", options = [feature for feature in allptdata.columns if feature.startswith('Resultant')], 
-                           default = ['Resultant (m/s^2)_mean', 
-                                 'Resultant (m/s^2)_std', 
-                                 'Resultant (m/s^2)_energy'])
-    features = [feat.split('_')[1].upper() for feat in feats]
-    features = features + ['Score']
-    feats = feats + ['Novelty Score']
-    d = allptdata[allptdata['cuet'] == 'Cuet2']
-    if handarm == "Hand":
-        d = allptdata[allptdata['class'] == 'hand']
-    if handarm == "Arm":
-        d = allptdata[allptdata['class'] == 'side']
-    featurefig = px.parallel_coordinates(d[feats], 
-                                color="Novelty Score",
-                                color_continuous_scale = 'rdbu', 
-                                color_continuous_midpoint= 2,
-                                range_color = [1, 4])
-    featurefig.update_layout(showlegend=False, font_size = 10)
-    featurefig.update_layout(paper_bgcolor=None, plot_bgcolor=None)
-    st.plotly_chart(featurefig, use_container_width=True, config={'displayModeBar':False})
+    def pc(data):
+        fig = go.Figure(data=
+            go.Parcoords(
+                line = dict(color = data['Novelty Score'],
+                        colorscale = 'rdbu', cmin = 1, cmid = 3, cmax = 4), 
+                dimensions = list([
+                    dict(range = [data['Resultant (m/s^2)_mean'].min(),data['Resultant (m/s^2)_mean'].max()],
+                        label = 'Mean', values = data['Resultant (m/s^2)_mean']),
+                    dict(range = [data['Resultant (m/s^2)_min'].min(),data['Resultant (m/s^2)_min'].max()],
+                        label = 'Min', values = data['Resultant (m/s^2)_min']),
+                    dict(range = [data['Resultant (m/s^2)_max'].min(),data['Resultant (m/s^2)_max'].max()],
+                        label = 'Max', values = data['Resultant (m/s^2)_max']),
+                    dict(range = [data['Resultant (m/s^2)_std'].min(),data['Resultant (m/s^2)_std'].max()],
+                        label = 'Std', values = data['Resultant (m/s^2)_std']),
+                    dict(range = [data['Resultant (m/s^2)_energy'].min(),data['Resultant (m/s^2)_energy'].max()],
+                        label = 'Energy', values = data['Resultant (m/s^2)_energy']),
+                    dict(range = [data['Novelty Score'].min(),data['Novelty Score'].max()],
+                        label = 'Novelty Score', values = data['Novelty Score'])
+                ])
+            )
+        )
+
+        fig.update_layout(paper_bgcolor=None, plot_bgcolor=None)
+
+        return fig
+    st.plotly_chart(pc(allptdata), use_container_width=True, config={'displayModeBar':False})
  
 spacer1, spacer2, spacer3 = st.columns(3)
 spacer2.markdown(
