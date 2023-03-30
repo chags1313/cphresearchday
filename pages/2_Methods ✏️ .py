@@ -42,8 +42,8 @@ The novelty detection model (local outlier factor) [8] was trained with baseline
 
 """
 image = "https://raw.githubusercontent.com/chags1313/cphresearchday/main/pages/train.png"
+st.image(image)
 with st.expander("Training Procedures"):
-    st.image(image)
     def create_training_plot():
         # input data
         dfi = px.data.stocks().head(50)
@@ -85,8 +85,8 @@ with st.expander("Training Procedures"):
 The model was then applied to post-CUE-T acceleration features of hand and arm movements. A simple linear regression was used to assess the relationship between the mean novel UE movement pattern score in the post-test CUE-T to the overall post-test CUE-T score across participants for the hand and arm.
 """
 image2 = "https://raw.githubusercontent.com/chags1313/cphresearchday/main/pages/test.png"
+st.image(image2)
 with st.expander("Application Procedures"):
-    st.image(image2, caption = 'xx')
     def create_application_plot():
         #df = df.copy()
         # input data
