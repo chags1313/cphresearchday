@@ -47,6 +47,10 @@ if participantsfeatures == 'Regression':
     fig.update_xaxes(title = "Post-Test Novel UE Movement Scores")
     fig.update_yaxes(title = "CUE-T Post-Test Overall Score")
     st.plotly_chart(fig, use_container_width=True, config={'displayModeBar':False})
+    with st.expander("Explanation"):
+        """
+        The chart above depicts the relationship between novelty detected upper extremity movement scores and clincally assessed upper extremity function scores from the capabilities of upper extremity test.
+        """
 if participantsfeatures == 'Participants':
     pt = c2.selectbox("Select Example Participant", options = allptdata['PT'].unique())
     figdata = allptdata[allptdata['cuet']=='Cuet2']
@@ -76,6 +80,10 @@ if participantsfeatures == 'Participants':
     ))
 
     st.plotly_chart(fig, use_container_width=True, config={'displayModeBar':False})
+    with st.expander("Explanation"):
+        """
+        The plot above showcases the acceleration over time during the post-test CUE-T. The blue dots indicate the points in time when novel UE movements were detected with the LOF algorithm. The red dots indicate the points in time when baseline-related movement were detected. The LOF model was trained on baseline data from the CUE-T sensor-based movement and applied to all accerlation features. The acceleration values shown here are an example summary of movement. 
+        """
 if participantsfeatures == 'Features':
     handarm = c2.radio("Hand or Side", options = ["Hand", "Arm"], horizontal = True, label_visibility = 'hidden')
     if handarm == "Hand":
@@ -105,6 +113,11 @@ if participantsfeatures == 'Features':
         )
 
         fig.update_layout(paper_bgcolor=None, plot_bgcolor=None)
+        with st.expander("Explanation"):
+            """
+            This parallel coordinates plot provides a way to look across multiple acceleration features and assess relationships with novel UE movement scores. Each acceleration feature is represented by a separate x-axis. All the axes are equally spaced and parallel to each other. Each axis has a different scale and unit of measurement that showcases the minimum value of each feature on the bottom and maxiumum value on the top of the y-axis. Each upper extremity movement observed across participants is plotted as a single line and is colored to represent the novel UE movement score, ranging from 1 (baseline-related movement) in red to 4 (novel UE movement) in blue.
+
+            """
 
         return fig
     st.plotly_chart(pc(d), use_container_width=True, config={'displayModeBar':False})
