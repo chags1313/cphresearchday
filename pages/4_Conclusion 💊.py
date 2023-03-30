@@ -18,12 +18,12 @@ st.image(nd, use_column_width=True, caption='AI generated image')
 st.title('References')
 
 """
-- [1] Beekhuizen, Kristina S. PT, PhD. 2005. New Perspectives on Improving Upper Extremity Function after Spinal Cord Injury. Journal of Neurologic Physical Therapy. 
-- [2] Marino RJ, Kern SB, Leiby B, Schmidt-Read M, Mulcahey M. 2015. Reliability and validity of the capabilities of upper extremity test (CUE-T) in subjects with chronic spinal cord injury. The Journal of Spinal Cord Medicine 
-- [3] Mohammadian Rad, N., van Laarhoven, T., Furlanello, C., & Marchiori, E. 2018. Novelty Detection using Deep Normative Modeling for IMU-Based Abnormal Movement Monitoring in Parkinson’s Disease and Autism Spectrum Disorders. Sensors. 
-- [4] Nguyen, T.-N., Huynh, H.-H., & Meunier, J. 2016. Skeleton-Based Abnormal Gait Detection. Sensors, 16(11), 1792. 
-- [5] Khan, S.S., & Taati, B. 2016. Detecting unseen falls from wearable devices using channel-wise ensemble of autoencoders. Expert Syst. Appl., 87, 280-290. 
-- [6] Hiremath SV, Intille SS, Kelleher A, Cooper RA, Ding D. 2015. Detection of physical activities using a physical activity monitor system for wheelchair users. Medical Engineering and Physics; 37(1):68-76. 
-- [7] Ojeda M, Ding D. 2014. Temporal parameters estimation for wheelchair propulsion using wearable sensors. BioMed Research International; 2014. [8] Breunig, M. M.; Kriegel, H.-P.; Ng, R. T.; Sander, J. (2000). LOF: Identifying Density-based Local Outliers (PDF). Proceedings of the 2000 ACM SIGMOD International Conference on Management of Data
+1. Beekhuizen, Kristina S. PT, PhD. 2005. New Perspectives on Improving Upper Extremity Function after Spinal Cord Injury. Journal of Neurologic Physical Therapy. 
+2. Marino RJ, Kern SB, Leiby B, Schmidt-Read M, Mulcahey M. 2015. Reliability and validity of the capabilities of upper extremity test (CUE-T) in subjects with chronic spinal cord injury. The Journal of Spinal Cord Medicine 
+3. Mohammadian Rad, N., van Laarhoven, T., Furlanello, C., & Marchiori, E. 2018. Novelty Detection using Deep Normative Modeling for IMU-Based Abnormal Movement Monitoring in Parkinson’s Disease and Autism Spectrum Disorders. Sensors. 
+4. Nguyen, T.-N., Huynh, H.-H., & Meunier, J. 2016. Skeleton-Based Abnormal Gait Detection. Sensors, 16(11), 1792. 
+5. Khan, S.S., & Taati, B. 2016. Detecting unseen falls from wearable devices using channel-wise ensemble of autoencoders. Expert Syst. Appl., 87, 280-290. 
+6. Hiremath SV, Intille SS, Kelleher A, Cooper RA, Ding D. 2015. Detection of physical activities using a physical activity monitor system for wheelchair users. Medical Engineering and Physics; 37(1):68-76. 
+7. Ojeda M, Ding D. 2014. Temporal parameters estimation for wheelchair propulsion using wearable sensors. BioMed Research International; 2014. [8] Breunig, M. M.; Kriegel, H.-P.; Ng, R. T.; Sander, J. (2000). LOF: Identifying Density-based Local Outliers (PDF). Proceedings of the 2000 ACM SIGMOD International Conference on Management of Data
 """
 
