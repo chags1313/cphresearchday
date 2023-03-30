@@ -46,7 +46,7 @@ if participantsfeatures == 'Regression':
     ))
     fig.update_xaxes(title = None)
     fig.update_yaxes(title = None)
-    fig.add_annotation(text=,text,
+    fig.add_annotation(text=text,
                       x=0, y=comb['CUET Score'].max(), showarrow=False, bgcolor='lightblue', opacity = 0.95)
     st.plotly_chart(fig, use_container_width=True, config={'displayModeBar':False})
 if participantsfeatures == 'Participants':
