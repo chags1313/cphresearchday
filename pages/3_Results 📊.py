@@ -64,6 +64,11 @@ if participantsfeatures == 'Participants':
 
     st.plotly_chart(fig, use_container_width=True, config={'displayModeBar':False})
 if participantsfeatures == 'Features':
+    handarm = c2.radio("Hand or Side", options = ["Hand", "Arm"], horizontal = True, label_visibility = 'hidden')
+    if handarm == "Hand":
+        d = allptdata[allptdata['class'] == 'hand']
+    if handarm == "Arm":
+        d = allptdata[allptdata['class'] == 'side']
     def pc(data):
         fig = go.Figure(data=
             go.Parcoords(
@@ -89,7 +94,7 @@ if participantsfeatures == 'Features':
         fig.update_layout(paper_bgcolor=None, plot_bgcolor=None)
 
         return fig
-    st.plotly_chart(pc(allptdata), use_container_width=True, config={'displayModeBar':False})
+    st.plotly_chart(pc(d), use_container_width=True, config={'displayModeBar':False})
  
 spacer1, spacer2, spacer3 = st.columns(3)
 spacer2.markdown(
