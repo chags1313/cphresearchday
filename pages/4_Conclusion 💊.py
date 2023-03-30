@@ -12,7 +12,7 @@ A significant regression equation was found for novel UE hand movement patterns 
 
 Novelty detection outcomes may be a robust wearable sensor biomarker to identify different or new movements and monitor function over time. Novelty detection may also aid in the development of personalized care plans to optimize rehabilitation interventions for individuals with cervical SCI.
 """)
-nd = "https://raw.githubusercontent.com/chags1313/cphresearchday/main/ws.jpg"
+nd = "https://raw.githubusercontent.com/chags1313/cphresearchday/main/wheelchairexercise.jpg"
 st.image(nd, use_column_width=True, caption='AI generated image')
 
 st.title('References')
