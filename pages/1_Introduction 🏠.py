@@ -29,7 +29,7 @@ st.title("Objective")
 The overarching goal of this study is to assess the relationship between novel UE movement pattern scores identified through novelty detection methods and clinical UE function scores as measured by the CUE-T. 
 """
 
-spacer1, spacer2, spacer3 = st.columns(2)
+spacer1, spacer2, spacer3 = st.columns(3)
 
 spacer2.markdown(
 """
