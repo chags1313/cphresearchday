@@ -1,6 +1,7 @@
 import streamlit as st
 from PIL import Image
 import pandas as pd
+import numpy as np
 import plotly.express as px
 
 data = pd.read_pickle("https://raw.githubusercontent.com/chags1313/cphresearchday/main/pages/alld.pkl")
