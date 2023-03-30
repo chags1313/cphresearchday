@@ -7,11 +7,8 @@ from PIL import Image
 st.set_page_config(
     page_title="CPH: Novel UE Movement",
     page_icon="⌚",
-    initial_sidebar_state="expanded",
     menu_items={
-        'Get Help': 'https://www.extremelycoolapp.com/help',
-        'Report a bug': "https://www.extremelycoolapp.com/bug",
-        'About': "# This is a header. This is an *extremely* cool app!"
+        'Cole': "# This is a header. This is an *extremely* cool app!"
     }
 )
 """
