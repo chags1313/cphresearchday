@@ -113,14 +113,14 @@ if participantsfeatures == 'Features':
         )
 
         fig.update_layout(paper_bgcolor=None, plot_bgcolor=None)
-        with st.expander("Explanation"):
-            """
-            This parallel coordinates plot provides a way to look across multiple acceleration features and assess relationships with novel UE movement scores. Each acceleration feature is represented by a separate x-axis. All the axes are equally spaced and parallel to each other. Each axis has a different scale and unit of measurement that showcases the minimum value of each feature on the bottom and maxiumum value on the top of the y-axis. Each upper extremity movement observed across participants is plotted as a single line and is colored to represent the novel UE movement score, ranging from low novel UE movement scores (detected as baseline-related movement) in red to high novel UE movement scores (detected as novel UE movement) in blue.
-
-            """
 
         return fig
     st.plotly_chart(pc(d), use_container_width=True, config={'displayModeBar':False})
+    with st.expander("Explanation"):
+        """
+        This parallel coordinates plot provides a way to look across multiple acceleration features and assess relationships with novel UE movement scores. Each acceleration feature is represented by a separate x-axis. All the axes are equally spaced and parallel to each other. Each axis has a different scale and unit of measurement that showcases the minimum value of each feature on the bottom and maxiumum value on the top of the y-axis. Each upper extremity movement observed across participants is plotted as a single line and is colored to represent the novel UE movement score, ranging from low novel UE movement scores (detected as baseline-related movement) in red to high novel UE movement scores (detected as novel UE movement) in blue.
+
+        """
  
 spacer1, spacer2, spacer3 = st.columns(3)
 spacer2.markdown(
