@@ -29,8 +29,10 @@ if participantsfeatures == 'Regression':
     hs = c2.radio("hs", ['Hand', 'Arm'], horizontal = True, label_visibility='hidden')
     if hs == 'Hand':
         v = 'Hand'
+        text = "R^2 = 0.84"
     if hs == 'Arm':
         v = 'Side'
+        text = "R^2 = 0.07"
     fig = px.scatter(comb[comb['Class']==v], x= 'Novelty Score', y = 'CUET Score', trendline = 'ols', trendline_color_override='black')
     fig.update_layout(showlegend=False, font_size = 28)
     fig.update_traces(marker={'size': 24})
@@ -44,6 +46,8 @@ if participantsfeatures == 'Regression':
     ))
     fig.update_xaxes(title = None)
     fig.update_yaxes(title = None)
+    fig.add_annotation(text=,text,
+                      x=0, y=comb['CUET Score'].max(), showarrow=False, bgcolor='lightblue', opacity = 0.95)
     st.plotly_chart(fig, use_container_width=True, config={'displayModeBar':False})
 if participantsfeatures == 'Participants':
     pt = c2.selectbox("Select Example Participant", options = allptdata['PT'].unique())
