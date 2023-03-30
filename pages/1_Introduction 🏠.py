@@ -15,7 +15,7 @@ The Capabilities of Upper Extremity Test (CUE-T) was developed to capture UE fun
 
 """
 )
-we = "https://raw.githubusercontent.com/chags1313/cphresearchday/main/wheelchairexercise.jpg"
+we = "https://raw.githubusercontent.com/chags1313/cphresearchday/main/ws.jpg"
 topside2.image(we, use_column_width=True, caption = 'AI generated image')
 """
 Novelty detection is one such method that provides key ingredients to identify and monitor UE function over time, especially when paired with real-world monitoring devices such as wearable sensors. In general, novelty detection is a semi-supervised machine learning technique used to identify characteristics of data samples collected during a baseline assessment and then used on new data samples to recognize characteristics that appear different or new [3]. 
