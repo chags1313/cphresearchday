@@ -29,10 +29,10 @@ if participantsfeatures == 'Regression':
     hs = c2.radio("hs", ['Hand', 'Arm'], horizontal = True, label_visibility='hidden')
     if hs == 'Hand':
         v = 'Hand'
-        text = "R^2 = 0.84"
+        text = "R^2 = 0.84, P-Value = <0.01"
     if hs == 'Arm':
         v = 'Side'
-        text = "R^2 = 0.07"
+        text = "R^2 = 0.07, P-Value = 0.48"
     fig = px.scatter(comb[comb['Class']==v], x= 'Novelty Score', y = 'CUET Score', trendline = 'ols', trendline_color_override='black')
     fig.update_layout(showlegend=False, font_size = 28)
     fig.update_traces(marker={'size': 24})
