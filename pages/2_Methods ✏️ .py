@@ -78,7 +78,7 @@ with st.expander("Training Procedures"):
         # attribute adjusments
         fig.layout.updatemenus[0].buttons[0]['args'][1]['frame']['redraw'] = True
         return fig
-    st.ploty_chart(create_training_plot())
+    st.plotly_chart(create_training_plot())
 
 """
 The model was then applied to post-CUE-T acceleration features of hand and arm movements. A simple linear regression was used to assess the relationship between the mean novel UE movement pattern score in the post-test CUE-T to the overall post-test CUE-T score across participants for the hand and arm.
