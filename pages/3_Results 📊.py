@@ -44,8 +44,8 @@ if participantsfeatures == 'Regression':
         xanchor="right",
         x=0.8
     ))
-    fig.update_xaxes(title = None)
-    fig.update_yaxes(title = None)
+    fig.update_xaxes(title = "Post-Test Novel UE Movement Scores")
+    fig.update_yaxes(title = "CUE-T Post-Test Overall Score")
     st.plotly_chart(fig, use_container_width=True, config={'displayModeBar':False})
 if participantsfeatures == 'Participants':
     pt = c2.selectbox("Select Example Participant", options = allptdata['PT'].unique())
