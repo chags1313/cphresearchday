@@ -1,6 +1,8 @@
 import streamlit as st
 from PIL import Image
 import pandas as pd
+import plotly.express as px
+
 data = pd.read_pickle("https://raw.githubusercontent.com/chags1313/cphresearchday/main/pages/alld.pkl")
 """
 [![forthebadge](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNDEuNTUiIGhlaWdodD0iMzUiIHZpZXdCb3g9IjAgMCAxNDEuNTUgMzUiPjxyZWN0IGNsYXNzPSJzdmdfX3JlY3QiIHg9IjAiIHk9IjAiIHdpZHRoPSIxNDEuNTUiIGhlaWdodD0iMzUiIGZpbGw9IiNBMUExQTEiLz48cmVjdCBjbGFzcz0ic3ZnX19yZWN0IiB4PSIxNDEuNTUiIHk9IjAiIHdpZHRoPSIwIiBoZWlnaHQ9IjM1IiBmaWxsPSIjNkZDMkRFIi8+PHBhdGggY2xhc3M9InN2Z19fdGV4dCIgZD0iTTE1Ljc4IDIyTDE0LjMxIDIyTDE0LjMxIDEzLjQ3TDE1Ljc4IDEzLjQ3TDE1Ljc4IDIyWk0yMi4wNyAyMkwyMC41OSAyMkwyMC41OSAxMy40N0wyMi4wNyAxMy40N0wyNS44OSAxOS41NEwyNS44OSAxMy40N0wyNy4zNiAxMy40N0wyNy4zNiAyMkwyNS44OCAyMkwyMi4wNyAxNS45NUwyMi4wNyAyMlpNMzMuNzggMTQuNjZMMzEuMTQgMTQuNjZMMzEuMTQgMTMuNDdMMzcuOTEgMTMuNDdMMzcuOTEgMTQuNjZMMzUuMjUgMTQuNjZMMzUuMjUgMjJMMzMuNzggMjJMMzMuNzggMTQuNjZaTTQzLjE1IDIyTDQxLjY3IDIyTDQxLjY3IDEzLjQ3TDQ0LjY3IDEzLjQ3UTQ2LjE0IDEzLjQ3IDQ2Ljk1IDE0LjEzUTQ3Ljc1IDE0Ljc5IDQ3Ljc1IDE2LjA1TDQ3Ljc1IDE2LjA1UTQ3Ljc1IDE2LjkwIDQ3LjM0IDE3LjQ4UTQ2LjkyIDE4LjA2IDQ2LjE5IDE4LjM3TDQ2LjE5IDE4LjM3TDQ4LjEwIDIxLjkyTDQ4LjEwIDIyTDQ2LjUxIDIyTDQ0LjgwIDE4LjcxTDQzLjE1IDE4LjcxTDQzLjE1IDIyWk00My4xNSAxNC42Nkw0My4xNSAxNy41Mkw0NC42NyAxNy41MlE0NS40MiAxNy41MiA0NS44NSAxNy4xNVE0Ni4yNyAxNi43NyA0Ni4yNyAxNi4xMUw0Ni4yNyAxNi4xMVE0Ni4yNyAxNS40MyA0NS44OCAxNS4wNVE0NS40OSAxNC42OCA0NC43MiAxNC42Nkw0NC43MiAxNC42Nkw0My4xNSAxNC42NlpNNTEuODggMTguMDBMNTEuODggMTguMDBMNTEuODggMTcuNTJRNTEuODggMTYuMjggNTIuMzIgMTUuMzJRNTIuNzYgMTQuMzcgNTMuNTcgMTMuODZRNTQuMzcgMTMuMzUgNTUuNDEgMTMuMzVRNTYuNDYgMTMuMzUgNTcuMjYgMTMuODVRNTguMDcgMTQuMzUgNTguNTEgMTUuMjlRNTguOTUgMTYuMjMgNTguOTUgMTcuNDhMNTguOTUgMTcuNDhMNTguOTUgMTcuOTZRNTguOTUgMTkuMjEgNTguNTIgMjAuMTZRNTguMDkgMjEuMTAgNTcuMjggMjEuNjFRNTYuNDggMjIuMTIgNTUuNDMgMjIuMTJMNTUuNDMgMjIuMTJRNTQuMzkgMjIuMTIgNTMuNTggMjEuNjFRNTIuNzcgMjEuMTAgNTIuMzIgMjAuMTdRNTEuODggMTkuMjMgNTEuODggMTguMDBaTTUzLjM2IDE3LjQ2TDUzLjM2IDE3Ljk2UTUzLjM2IDE5LjM2IDUzLjkxIDIwLjEzUTU0LjQ1IDIwLjkwIDU1LjQzIDIwLjkwTDU1LjQzIDIwLjkwUTU2LjQxIDIwLjkwIDU2Ljk0IDIwLjE1UTU3LjQ3IDE5LjQwIDU3LjQ3IDE3Ljk2TDU3LjQ3IDE3Ljk2TDU3LjQ3IDE3LjUxUTU3LjQ3IDE2LjA5IDU2LjkzIDE1LjM0UTU2LjQwIDE0LjU4IDU1LjQxIDE0LjU4TDU1LjQxIDE0LjU4UTU0LjQ1IDE0LjU4IDUzLjkxIDE1LjMzUTUzLjM3IDE2LjA5IDUzLjM2IDE3LjQ2TDUzLjM2IDE3LjQ2Wk02NS44NyAyMkw2My40MiAyMkw2My40MiAxMy40N0w2NS45NCAxMy40N1E2Ny4wNyAxMy40NyA2Ny45NCAxMy45N1E2OC44MiAxNC40OCA2OS4zMCAxNS40MFE2OS43OCAxNi4zMyA2OS43OCAxNy41Mkw2OS43OCAxNy41Mkw2OS43OCAxNy45NVE2OS43OCAxOS4xNiA2OS4zMCAyMC4wOFE2OC44MSAyMS4wMCA2Ny45MiAyMS41MFE2Ny4wMyAyMiA2NS44NyAyMkw2NS44NyAyMlpNNjQuOTAgMTQuNjZMNjQuOTAgMjAuODJMNjUuODcgMjAuODJRNjcuMDMgMjAuODIgNjcuNjYgMjAuMDlRNjguMjggMTkuMzYgNjguMjkgMTcuOTlMNjguMjkgMTcuOTlMNjguMjkgMTcuNTJRNjguMjkgMTYuMTMgNjcuNjkgMTUuNDBRNjcuMDkgMTQuNjYgNjUuOTQgMTQuNjZMNjUuOTQgMTQuNjZMNjQuOTAgMTQuNjZaTTc0LjExIDE5LjE2TDc0LjExIDE5LjE2TDc0LjExIDEzLjQ3TDc1LjU5IDEzLjQ3TDc1LjU5IDE5LjE4UTc1LjU5IDIwLjAzIDc2LjAyIDIwLjQ4UTc2LjQ2IDIwLjkzIDc3LjMwIDIwLjkzTDc3LjMwIDIwLjkzUTc5LjAxIDIwLjkzIDc5LjAxIDE5LjEzTDc5LjAxIDE5LjEzTDc5LjAxIDEzLjQ3TDgwLjQ5IDEzLjQ3TDgwLjQ5IDE5LjE3UTgwLjQ5IDIwLjUzIDc5LjYyIDIxLjMyUTc4Ljc1IDIyLjEyIDc3LjMwIDIyLjEyTDc3LjMwIDIyLjEyUTc1LjgzIDIyLjEyIDc0Ljk3IDIxLjMzUTc0LjExIDIwLjU1IDc0LjExIDE5LjE2Wk04NC43OSAxOC4xOUw4NC43OSAxOC4xOUw4NC43OSAxNy4zOVE4NC43OSAxNi4xOSA4NS4yMiAxNS4yN1E4NS42NCAxNC4zNSA4Ni40NCAxMy44NVE4Ny4yNCAxMy4zNSA4OC4yOSAxMy4zNUw4OC4yOSAxMy4zNVE4OS43MCAxMy4zNSA5MC41NiAxNC4xMlE5MS40MyAxNC44OSA5MS41NyAxNi4yOUw5MS41NyAxNi4yOUw5MC4wOSAxNi4yOVE4OS45OCAxNS4zNyA4OS41NSAxNC45NlE4OS4xMiAxNC41NSA4OC4yOSAxNC41NUw4OC4yOSAxNC41NVE4Ny4zMiAxNC41NSA4Ni44MSAxNS4yNlE4Ni4yOSAxNS45NiA4Ni4yOCAxNy4zM0w4Ni4yOCAxNy4zM0w4Ni4yOCAxOC4wOVE4Ni4yOCAxOS40NyA4Ni43NyAyMC4yMFE4Ny4yNyAyMC45MiA4OC4yMiAyMC45Mkw4OC4yMiAyMC45MlE4OS4wOSAyMC45MiA4OS41MyAyMC41M1E4OS45NyAyMC4xNCA5MC4wOSAxOS4yMkw5MC4wOSAxOS4yMkw5MS41NyAxOS4yMlE5MS40NCAyMC41OSA5MC41NiAyMS4zNVE4OS42OCAyMi4xMiA4OC4yMiAyMi4xMkw4OC4yMiAyMi4xMlE4Ny4yMCAyMi4xMiA4Ni40MyAyMS42M1E4NS42NSAyMS4xNSA4NS4yMyAyMC4yNlE4NC44MSAxOS4zNyA4NC43OSAxOC4xOVpNOTcuNTYgMTQuNjZMOTQuOTIgMTQuNjZMOTQuOTIgMTMuNDdMMTAxLjY5IDEzLjQ3TDEwMS42OSAxNC42Nkw5OS4wMyAxNC42Nkw5OS4wMyAyMkw5Ny41NiAyMkw5Ny41NiAxNC42NlpNMTA3LjAxIDIyTDEwNS41NCAyMkwxMDUuNTQgMTMuNDdMMTA3LjAxIDEzLjQ3TDEwNy4wMSAyMlpNMTExLjU1IDE4LjAwTDExMS41NSAxOC4wMEwxMTEuNTUgMTcuNTJRMTExLjU1IDE2LjI4IDExMi4wMCAxNS4zMlExMTIuNDQgMTQuMzcgMTEzLjI0IDEzLjg2UTExNC4wNSAxMy4zNSAxMTUuMDkgMTMuMzVRMTE2LjE0IDEzLjM1IDExNi45NCAxMy44NVExMTcuNzUgMTQuMzUgMTE4LjE5IDE1LjI5UTExOC42MyAxNi4yMyAxMTguNjMgMTcuNDhMMTE4LjYzIDE3LjQ4TDExOC42MyAxNy45NlExMTguNjMgMTkuMjEgMTE4LjIwIDIwLjE2UTExNy43NiAyMS4xMCAxMTYuOTYgMjEuNjFRMTE2LjE1IDIyLjEyIDExNS4xMCAyMi4xMkwxMTUuMTAgMjIuMTJRMTE0LjA3IDIyLjEyIDExMy4yNiAyMS42MVExMTIuNDQgMjEuMTAgMTEyLjAwIDIwLjE3UTExMS41NiAxOS4yMyAxMTEuNTUgMTguMDBaTTExMy4wNCAxNy40NkwxMTMuMDQgMTcuOTZRMTEzLjA0IDE5LjM2IDExMy41OCAyMC4xM1ExMTQuMTMgMjAuOTAgMTE1LjEwIDIwLjkwTDExNS4xMCAyMC45MFExMTYuMDkgMjAuOTAgMTE2LjYyIDIwLjE1UTExNy4xNSAxOS40MCAxMTcuMTUgMTcuOTZMMTE3LjE1IDE3Ljk2TDExNy4xNSAxNy41MVExMTcuMTUgMTYuMDkgMTE2LjYxIDE1LjM0UTExNi4wOCAxNC41OCAxMTUuMDkgMTQuNThMMTE1LjA5IDE0LjU4UTExNC4xMyAxNC41OCAxMTMuNTkgMTUuMzNRMTEzLjA1IDE2LjA5IDExMy4wNCAxNy40NkwxMTMuMDQgMTcuNDZaTTEyNC41OCAyMkwxMjMuMTAgMjJMMTIzLjEwIDEzLjQ3TDEyNC41OCAxMy40N0wxMjguMzkgMTkuNTRMMTI4LjM5IDEzLjQ3TDEyOS44NiAxMy40N0wxMjkuODYgMjJMMTI4LjM4IDIyTDEyNC41OCAxNS45NUwxMjQuNTggMjJaIiBmaWxsPSIjMDAwMDAwIi8+PHBhdGggY2xhc3M9InN2Z19fdGV4dCIgZD0iIiBmaWxsPSIjMDAwMDAwIiB4PSIxNTQuNTUiLz48L3N2Zz4=)](https://novelmovementcph.streamlit.app/Introduction_%F0%9F%8F%A0)
@@ -41,6 +43,42 @@ The novelty detection model (local outlier factor) [8] was trained with baseline
 image = "https://raw.githubusercontent.com/chags1313/cphresearchday/main/pages/train.png"
 with st.expander("Training Procedures"):
     st.image(image)
+    def create_training_plot():
+        # input data
+        dfi = px.data.stocks().head(50)
+        dfi['date'] = pd.to_datetime(dfi['date'])
+        start = 12
+        obs = len(dfi)
+        # new datastructure for animation
+        df = pd.DataFrame() # container for df with new datastructure
+        for i in np.arange(start,obs):
+            dfa = dfi.head(i).copy()
+            dfa['ix']=i
+            df = pd.concat([df, dfa])
+        df["Acceleration Feature 001"] = df['GOOG'].rename("Acceleration Feature 001")
+        df["Acceleration Feature 002"] = df['AAPL'].rename("Acceleration Feature 002")
+        df["Acceleration Feature..."] = df['AMZN'].rename("Acceleration Feature...")
+        df["Acceleration Feature 130"] = df['FB'].rename("Acceleration Feature 130")
+        df['Series'] =df['ix']
+
+        # plotly figure
+        fig = px.line(df, y = ["Acceleration Feature 001", "Acceleration Feature 002", "Acceleration Feature...", "Acceleration Feature 130"],
+                    animation_frame='Series',
+                    color_discrete_map={"Acceleration Feature 001": 'salmon', 
+                                        "Acceleration Feature 002": 'red', 
+                                        "Acceleration Feature...": 'salmon',
+                                        "Acceleration Feature 130": 'purple'},
+                    width=1000, height=600)
+        fig.update_yaxes(title = 'Acceleration Feature Values', range = [0,2], showticklabels=False)
+        fig.update_xaxes(title = 'Time', showticklabels=False)
+        fig.update_layout(showlegend = False)
+        fig.add_hrect(y0 = 1.6, y1 = 0.75, fillcolor="gray", opacity=0.4, line_width=1)
+        fig.add_annotation(text = 'Trained Novelty Detection Model Hypothetical Bounds Related to Baseline Data', x = 20, y = 1.6,bgcolor = 'lightgrey')
+        fig.update_layout(paper_bgcolor=None, plot_bgcolor=None, hovermode = False)
+        # attribute adjusments
+        fig.layout.updatemenus[0].buttons[0]['args'][1]['frame']['redraw'] = True
+        return fig
+    st.ploty_chart(create_training_plot())
 
 """
 The model was then applied to post-CUE-T acceleration features of hand and arm movements. A simple linear regression was used to assess the relationship between the mean novel UE movement pattern score in the post-test CUE-T to the overall post-test CUE-T score across participants for the hand and arm.
@@ -48,6 +86,43 @@ The model was then applied to post-CUE-T acceleration features of hand and arm m
 image2 = "https://raw.githubusercontent.com/chags1313/cphresearchday/main/pages/test.png"
 with st.expander("Application Procedures"):
     st.image(image2, caption = 'xx')
+    def create_application_plot():
+        #df = df.copy()
+        # input data
+        dfi = px.data.stocks().head(50)
+        dfi['date'] = pd.to_datetime(dfi['date'])
+        start = 12
+        obs = len(dfi)
+        # new datastructure for animation
+        df = pd.DataFrame() # container for df with new datastructure
+        for i in np.arange(start,obs):
+            dfa = dfi.head(i).copy()
+            dfa['ix']=i
+            df = pd.concat([df, dfa])
+        df["Acceleration Feature 001"] = df['GOOG'].rename("Acceleration Feature 001")
+        df["Acceleration Feature 002"] = df['AAPL'].rename("Acceleration Feature 002")
+        df["Acceleration Feature..."] = df['AMZN'].rename("Acceleration Feature...")
+        df["Acceleration Feature 130"] = df['FB'].rename("Acceleration Feature 130")
+        df['Series'] =df['ix']
+        fig = px.line(df, y = ["Acceleration Feature 001", "Acceleration Feature 002", "Acceleration Feature...", "Acceleration Feature 130"],
+                    animation_frame='Series',
+                    color_discrete_map={"Acceleration Feature 001": 'salmon', 
+                                        "Acceleration Feature 002": 'red', 
+                                        "Acceleration Feature...": 'salmon',
+                                        "Acceleration Feature 130": 'purple'},
+                    width=1000, height=600)
+        fig.update_yaxes(title = 'Acceleration Feature Values', range = [0,2], showticklabels=False)
+        fig.update_xaxes(title = 'Time', showticklabels=False)
+        fig.update_layout(showlegend = False)
+        fig.add_hrect(y0 = 1.3, y1 = 0.9, fillcolor="gray", opacity=0.4, line_width=1)
+        fig.add_annotation(text = 'Detected Novel UE Movement', x = 11, y = 0.853, bgcolor = 'lightblue')
+        fig.add_annotation(text = 'Higher Novel UE Movement Score', x = 34, y = 1.637, bgcolor = 'lightblue')
+        fig.add_annotation(text = 'Trained Novelty Detection Model Hypothetical Bounds Related to Baseline Data', x = 20, y = 1.3,bgcolor = 'lightgrey')
+        # attribute adjusments
+        fig.layout.updatemenus[0].buttons[0]['args'][1]['frame']['redraw'] = True
+        fig.update_layout(paper_bgcolor=None, plot_bgcolor=None, hovermode = False)
+        return fig
+    st.plotly_chart(create_application_plot())
 
 
 c1, c2, c3 = st.columns(3)
